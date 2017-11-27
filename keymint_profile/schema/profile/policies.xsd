@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified">
+
+    <xs:element name="profile" type="PoliciesNode" />
+    <xs:complexType name="PoliciesNode">
+        <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="policies" type="Policies" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Policies">
+        <xs:sequence minOccurs="1" maxOccurs="unbounded">
+            <xs:element name="policy" type="Policy" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Policy">
+        <xs:choice>
+            <xs:element name="comarmor" type="ComArmorType"/>
+        </xs:choice>
+        <xs:attribute name="name" type="xs:string" use="required" />
+    </xs:complexType>
+
+    <xs:complexType name="ComArmorType">
+        <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="config_dir" minOccurs="1" type="xs:string" />
+            <xs:element name="profile_dir" minOccurs="1" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

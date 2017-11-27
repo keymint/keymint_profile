@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profile>
+    <policies>
+        <policy name="orical">
+            <comarmor>
+                <config_dir></config_dir>
+                <profile_dir></profile_dir>
+            </comarmor>
+        </policy>
+    </policies>
+</profile>

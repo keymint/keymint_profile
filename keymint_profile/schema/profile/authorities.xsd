@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified">
+
+    <xs:element name="profile" type="AuthoritiesNode" />
+    <xs:complexType name="AuthoritiesNode">
+        <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="authorities" type="Authorities" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Authorities">
+        <xs:sequence minOccurs="1" maxOccurs="unbounded">
+            <xs:element name="authority" type="Authority" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Authority">
+        <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="cert" minOccurs="1" type="CertType" />
+            <xs:element name="key" minOccurs="1" type="KeyType" />
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" use="required" />
+    </xs:complexType>
+
+    <xs:complexType name="CertType">
+        <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="subject_name" minOccurs="1" type="xs:string" />
+            <xs:element name="validity" minOccurs="1" type="Validity" />
+            <xs:element name="serial_number" type="xs:integer" />
+            <xs:element name="issuer_name" minOccurs="1" type="xs:string" />
+            <xs:element name="hash_algorithm" minOccurs="1" type="HashAlgorithmKind" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="HashAlgorithmKind">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="SHA224" />
+            <xs:enumeration value="SHA256" />
+            <xs:enumeration value="SHA384" />
+            <xs:enumeration value="SHA512" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="Validity">
+        <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="not_before" type="xs:dateTime" />
+            <xs:element name="not_after" type="xs:dateTime" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="KeyType">
+        <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="asymmetric_type" type="AsymmetricType" />
+            <xs:element name="encryption_algorithm" type="EncryptionAlgorithmKind" />
+            <xs:element name="password_env" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AsymmetricType">
+        <xs:choice minOccurs="1" maxOccurs="1">
+            <xs:element name="rsa" minOccurs="0" type="BitAsymmetricType" />
+            <xs:element name="dsa" minOccurs="0" type="BitAsymmetricType" />
+            <xs:element name="ec" minOccurs="0" type="CurveAsymmetricType" />
+        </xs:choice>
+    </xs:complexType>
+
+    <xs:complexType name="BitAsymmetricType">
+        <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="key_size" type="xs:integer" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CurveAsymmetricType">
+        <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="curve" type="CurveKind" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="CurveKind">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="SECT571K1" />
+            <xs:enumeration value="SECT409K1" />
+            <xs:enumeration value="SECT283K1" />
+            <xs:enumeration value="SECT233K1" />
+            <xs:enumeration value="SECT163K1" />
+            <xs:enumeration value="SECT571R1" />
+            <xs:enumeration value="SECT409R1" />
+            <xs:enumeration value="SECT283R1" />
+            <xs:enumeration value="SECT233R1" />
+            <xs:enumeration value="SECT163R2" />
+            <xs:enumeration value="SECP521R1" />
+            <xs:enumeration value="SECP384R1" />
+            <xs:enumeration value="SECP256R1" />
+            <xs:enumeration value="SECP224R1" />
+            <xs:enumeration value="SECP192R1" />
+            <xs:enumeration value="SECP256K1" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="EncryptionAlgorithmKind">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="BestAvailableEncryption" />
+            <xs:enumeration value="NoEncryption" />
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
