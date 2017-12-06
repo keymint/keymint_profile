@@ -6,6 +6,7 @@
     <authorities format="keymint_ros2_dds">
         <authority>
           <authority_path>authorities.xml</authority_path>
+          <defaults_path>authorities.defaults.xml</defaults_path>
         </authority>
     </authorities>
     <policies format="keymint_ros2_dds">

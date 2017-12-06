@@ -28,6 +28,8 @@ except ImportError:
 
 import os
 
+from keymint_package.xml.defaults import set_defaults
+
 PROFILE_MANIFEST_FILENAME = 'keymint_profile.xml'
 
 
@@ -148,10 +150,14 @@ def parse_profile_string(data, path, *, filename=None):
         prf.policies = ElementTree.Element('policies')
         for policy in policies.findall('policy'):
             policy_path = os.path.join(path, policy.find('policy_path').text)
-            with open(policy_path, 'r') as f:
-                policy_data = f.read()
-            check_schema(policies_schema, policy_data, policy_path)
-            policy_root = ElementTree.fromstring(policy_data)
+            policy_root = ElementTree.ElementTree(file=policy_path).getroot()
+            if policy.find('defaults_path') is not None:
+                defaults_path = os.path.join(
+                    path, policy.find('defaults_path').text)
+                defaults_root = ElementTree.ElementTree(file=defaults_path).getroot()
+                policy_root = set_defaults(
+                    policies_schema, policy_root, defaults_root)
+            check_schema(policies_schema, policy_root, policy_path)
             policy_elemts = policy_root.findall('policies/policy')
             prf.policies.extend(policy_elemts)
 
@@ -162,10 +168,14 @@ def parse_profile_string(data, path, *, filename=None):
         prf.authorities = ElementTree.Element('authorities')
         for authority in authorities.findall('authority'):
             authority_path = os.path.join(path, authority.find('authority_path').text)
-            with open(authority_path, 'r') as f:
-                authority_data = f.read()
-            check_schema(authorities_schema, authority_data, authority_path)
-            authority_root = ElementTree.fromstring(authority_data)
+            authority_root = ElementTree.ElementTree(file=authority_path).getroot()
+            if authority.find('defaults_path') is not None:
+                defaults_path = os.path.join(
+                    path, authority.find('defaults_path').text)
+                defaults_root = ElementTree.ElementTree(file=defaults_path).getroot()
+                authority_root = set_defaults(
+                    authorities_schema, authority_root, defaults_root)
+            check_schema(authorities_schema, authority_root, authority_path)
             authority_elemts = authority_root.findall('authorities/authority')
             prf.authorities.extend(authority_elemts)
 
