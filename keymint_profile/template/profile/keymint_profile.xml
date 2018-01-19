@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://example.com/ns/collection/keymint_profile.xsd"
+    format="1">
+    <name>default_keymint_ros2_comarmor</name>
+    <authorities format="keymint_ros2_dds">
+        <authority>
+          <authority_path>authorities.xml</authority_path>
+          <defaults_path>profile.defaults/authorities.xml</defaults_path>
+        </authority>
+    </authorities>
+    <policies format="keymint_ros2_comarmor">
+        <policy>
+          <policy_path>policies.xml</policy_path>
+        </policy>
+    </policies>
+    <export>
+        <policy_type>keymint_ros2_comarmor</policy_type>
+    </export>
+</profile>

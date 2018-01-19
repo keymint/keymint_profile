@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profile>
+    <policies>
+        <policy name="examlpe">
+            <comarmor>
+                <config_dir>comarmor.d</config_dir>
+                <profile_dir>comarmor.d</profile_dir>
+            </comarmor>
+        </policy>
+    </policies>
+</profile>

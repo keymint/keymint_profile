@@ -27,6 +27,8 @@ except ImportError:
     __version__ = 'unset'
 
 import os
+import shutil
+from .templates import get_profile_template_path
 
 from keymint_package.xml.defaults import set_defaults
 
@@ -82,6 +84,22 @@ def profile_exists_at(path):
 
     return os.path.isdir(path) and os.path.isfile(
         os.path.join(path, PROFILE_MANIFEST_FILENAME))
+
+
+def bootstrap_profile(path):
+    profile_template_path = get_profile_template_path('')
+    shutil.copytree(profile_template_path, path)
+    # print("profile_template_path: ", profile_template_path)
+    # for root, dirs, files in os.walk(profile_template_path):
+    #     for file in files:
+    #         source_path = os.path.join(root, file)
+    #         relative_path = os.path.relpath(source_path, profile_template_path)
+    #         target_path = os.path.join(path, relative_path)
+    #         print("source_path: ", source_path)
+    #         print("relative_path: ", relative_path)
+    #         print("target_path: ", target_path)
+    #         print("")
+
 
 
 def check_schema(schema, data, filename=None):

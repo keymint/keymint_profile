@@ -1,0 +1,7 @@
+profile example_talker /talker {
+  allow topic /chatter p,
+}
+
+profile example_listener /listener {
+  allow topic /chatter s,
+}
