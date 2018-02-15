@@ -3,8 +3,7 @@
     <policies>
         <policy name="orical">
             <comarmor>
-                <config_dir></config_dir>
-                <profile_dir></profile_dir>
+                <profile_path>comarmor.d</profile_path>
             </comarmor>
         </policy>
     </policies>

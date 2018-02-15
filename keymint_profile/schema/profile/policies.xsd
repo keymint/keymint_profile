@@ -26,8 +26,7 @@
 
     <xs:complexType name="ComArmorType">
         <xs:sequence minOccurs="1" maxOccurs="1">
-            <xs:element name="config_dir" minOccurs="1" type="xs:string" />
-            <xs:element name="profile_dir" minOccurs="1" type="xs:string" />
+            <xs:element name="profile_path" minOccurs="1" type="xs:string" />
         </xs:sequence>
     </xs:complexType>
 
