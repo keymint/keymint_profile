@@ -3,8 +3,7 @@
     <policies>
         <policy name="examlpe">
             <comarmor>
-                <config_dir>comarmor.d</config_dir>
-                <profile_dir>comarmor.d</profile_dir>
+                <profile_path>comarmor.d</profile_path>
             </comarmor>
         </policy>
     </policies>
