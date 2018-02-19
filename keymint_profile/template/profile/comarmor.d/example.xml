@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<profiles xmlns:xi="http://www.w3.org/2001/XInclude">
+    <profile name="My Talker Profile">
+        <attachment>/talker</attachment>
+
+        <ros_topic qualifier="ALLOW">
+            <attachment>/chatter</attachment>
+            <permissions>
+                <ros_publish/>
+            </permissions>
+        </ros_topic>
+
+        <ros_topic qualifier="ALLOW">
+            <attachment>/parameter_events</attachment>
+            <permissions>
+                <ros_publish/>
+                <ros_subscribe/>
+            </permissions>
+        </ros_topic>
+
+        <ros_topic qualifier="ALLOW">
+            <attachment>/clock</attachment>
+            <permissions>
+                <ros_subscribe/>
+            </permissions>
+        </ros_topic>
+
+        <ros_service qualifier="ALLOW">
+            <attachment>/talker/get_parameters</attachment>
+            <permissions>
+                <ros_call/>
+            </permissions>
+        </ros_service>
+
+        <ros_service qualifier="ALLOW">
+            <attachment>/talker/get_parameter_types</attachment>
+            <permissions>
+                <ros_call/>
+            </permissions>
+        </ros_service>
+
+        <ros_service qualifier="ALLOW">
+            <attachment>/talker/set_parameters</attachment>
+            <permissions>
+                <ros_call/>
+            </permissions>
+        </ros_service>
+
+        <ros_service qualifier="ALLOW">
+            <attachment>/talker/list_parameters</attachment>
+            <permissions>
+                <ros_call/>
+            </permissions>
+        </ros_service>
+
+        <ros_service qualifier="ALLOW">
+            <attachment>/talker/describe_parameters</attachment>
+            <permissions>
+                <ros_call/>
+            </permissions>
+        </ros_service>
+
+    </profile>
+
+    <profile name="My Listener Profile">
+        <attachment>/listener</attachment>
+
+        <ros_topic qualifier="ALLOW">
+            <attachment>/chatter</attachment>
+            <permissions>
+                <ros_subscribe/>
+            </permissions>
+        </ros_topic>
+
+        <ros_topic qualifier="ALLOW">
+            <attachment>/parameter_events</attachment>
+            <permissions>
+                <ros_publish/>
+                <ros_subscribe/>
+            </permissions>
+        </ros_topic>
+
+        <ros_topic qualifier="ALLOW">
+            <attachment>/clock</attachment>
+            <permissions>
+                <ros_subscribe/>
+            </permissions>
+        </ros_topic>
+
+        <ros_service qualifier="ALLOW">
+            <attachment>/listener/get_parameters</attachment>
+            <permissions>
+                <ros_call/>
+            </permissions>
+        </ros_service>
+
+        <ros_service qualifier="ALLOW">
+            <attachment>/listener/get_parameter_types</attachment>
+            <permissions>
+                <ros_call/>
+            </permissions>
+        </ros_service>
+
+        <ros_service qualifier="ALLOW">
+            <attachment>/listener/set_parameters</attachment>
+            <permissions>
+                <ros_call/>
+            </permissions>
+        </ros_service>
+
+        <ros_service qualifier="ALLOW">
+            <attachment>/listener/list_parameters</attachment>
+            <permissions>
+                <ros_call/>
+            </permissions>
+        </ros_service>
+
+        <ros_service qualifier="ALLOW">
+            <attachment>/listener/describe_parameters</attachment>
+            <permissions>
+                <ros_call/>
+            </permissions>
+        </ros_service>
+    </profile>
+</profiles>
