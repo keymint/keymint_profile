@@ -28,6 +28,10 @@ except ImportError:
 
 import os
 import shutil
+
+from xml.etree import cElementTree as ElementTree
+import xmlschema
+
 from .templates import get_profile_template_path
 
 from keymint_package.xml.defaults import set_defaults
@@ -124,8 +128,6 @@ def parse_profile_string(data, path, *, filename=None):
     :returns: return parsed :class:`Profile`
     :raises: :exc:`InvalidProfile`
     """
-    import xmlschema
-    import xml.etree.ElementTree as ElementTree
 
     from .profile import Profile
     from .schemas import get_profile_schema_path
