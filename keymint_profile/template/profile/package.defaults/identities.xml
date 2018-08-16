@@ -5,7 +5,7 @@
         <not_before>2013-10-26T00:00:00</not_before>
         <not_after>2023-10-26T22:45:30</not_after>
     </validity>
-    <serial_number></serial_number>
+    <serial_number>-1</serial_number>
     <issuer_name>ca</issuer_name>
     <hash_algorithm>SHA256</hash_algorithm>
     <key>
