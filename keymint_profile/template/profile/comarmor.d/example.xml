@@ -2,7 +2,9 @@
 
 <profiles xmlns:xi="http://www.w3.org/2001/XInclude">
     <profile name="My Talker Profile">
-        <attachment>/talker</attachment>
+        <attachments>
+            <attachment>/talker</attachment>
+        </attachments>
 
         <ros_topic qualifier="ALLOW">
             <attachments>
@@ -49,7 +51,9 @@
     </profile>
 
     <profile name="My Listener Profile">
-        <attachment>/listener</attachment>
+        <attachments>
+            <attachment>/listener</attachment>
+        </attachments>
 
         <ros_topic qualifier="ALLOW">
             <attachments>
