@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<profile name="Node" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <attachments>
+        <attachment>/*</attachment>
+    </attachments>
+    <xi:include href="node/time.xml" parse="xml" />
+    <xi:include href="node/parameters.xml" parse="xml" />
+</profile>

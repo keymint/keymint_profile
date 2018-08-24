@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<profile name="Time" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <attachments>
+        <attachment>/*</attachment>
+    </attachments>
+
+    <ros_topic qualifier="ALLOW">
+        <attachments>
+            <attachment>/clock</attachment>
+        </attachments>
+        <permissions>
+            <ros_subscribe/>
+        </permissions>
+    </ros_topic>
+</profile>

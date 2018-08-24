@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<profiles xmlns:xi="http://www.w3.org/2001/XInclude">
+    <profile name="My Client Profile">
+        <attachments>
+            <attachment>/add_two_ints_client</attachment>
+        </attachments>
+        <xi:include href="common/node.xml" parse="xml" />
+
+        <ros_service qualifier="ALLOW">
+            <attachments>
+                <attachment>/add_two_ints</attachment>
+            </attachments>
+            <permissions>
+                <ros_call/>
+            </permissions>
+        </ros_service>
+    </profile>
+
+    <profile name="My Server Profile">
+        <attachments>
+            <attachment>/add_two_ints_server</attachment>
+        </attachments>
+        <xi:include href="common/node.xml" parse="xml" />
+
+        <ros_service qualifier="ALLOW">
+            <attachments>
+                <attachment>/add_two_ints</attachment>
+            </attachments>
+            <permissions>
+                <ros_execute/>
+            </permissions>
+        </ros_service>
+    </profile>
+</profiles>

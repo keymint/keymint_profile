@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<profile name="Parameters" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <attachments>
+        <attachment>/*</attachment>
+    </attachments>
+
+    <ros_topic qualifier="ALLOW">
+        <attachments>
+            <attachment>/parameter_events</attachment>
+        </attachments>
+        <permissions>
+            <ros_publish/>
+            <ros_subscribe/>
+        </permissions>
+    </ros_topic>
+
+    <ros_service qualifier="ALLOW">
+        <attachments>
+            <attachment>{name}/describe_parameters</attachment>
+            <attachment>{name}/get_parameter_types</attachment>
+            <attachment>{name}/get_parameters</attachment>
+            <attachment>{name}/list_parameters</attachment>
+            <attachment>{name}/set_parameters</attachment>
+            <attachment>{name}/set_parameters_atomically</attachment>
+        </attachments>
+        <permissions>
+            <ros_call/>
+            <ros_execute/>
+        </permissions>
+    </ros_service>
+</profile>

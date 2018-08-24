@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<profiles xmlns:xi="http://www.w3.org/2001/XInclude">
+    <profile name="My Talker Profile">
+        <attachments>
+            <attachment>/talker</attachment>
+        </attachments>
+        <xi:include href="common/node.xml" parse="xml" />
+
+        <ros_topic qualifier="ALLOW">
+            <attachments>
+                <attachment>/chatter</attachment>
+            </attachments>
+            <permissions>
+                <ros_publish/>
+            </permissions>
+        </ros_topic>
+    </profile>
+
+    <profile name="My Listener Profile">
+        <attachments>
+            <attachment>/listener</attachment>
+        </attachments>
+        <xi:include href="common/node.xml" parse="xml" />
+
+        <ros_topic qualifier="ALLOW">
+            <attachments>
+                <attachment>/chatter</attachment>
+            </attachments>
+            <permissions>
+                <ros_subscribe/>
+            </permissions>
+        </ros_topic>
+    </profile>
+</profiles>
