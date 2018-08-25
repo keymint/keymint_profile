@@ -32,7 +32,22 @@
             <xs:element name="serial_number" type="xs:integer" nillable="true" />
             <xs:element name="issuer_name" type="xs:string" nillable="true" />
             <xs:element name="hash_algorithm" type="HashAlgorithmKind" />
+            <xs:element name="extensions" type="ExtensionsKind" />
         </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ExtensionsKind">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="BasicConstraints" type="BasicConstraintsKind" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="BasicConstraintsKind">
+        <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="ca" type="xs:boolean" />
+            <xs:element name="path_length" type="xs:integer" />
+        </xs:sequence>
+        <xs:attribute name="critical" type="xs:boolean" use="required" />
     </xs:complexType>
 
     <xs:simpleType name="HashAlgorithmKind">

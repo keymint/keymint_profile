@@ -5,6 +5,12 @@
             <cert>
                 <serial_number>1</serial_number>
                 <issuer_name></issuer_name>
+                <extensions>
+                  <BasicConstraints critical="true">
+                    <ca>true</ca>
+                    <path_length>1</path_length>
+                  </BasicConstraints>
+                </extensions>
             </cert>
         </authority>
     </authorities>
