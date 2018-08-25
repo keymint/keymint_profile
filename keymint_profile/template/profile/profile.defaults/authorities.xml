@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <defaults>
-    <subject_name>C=US, ST=CA, O=Acme, CN={name}/emailAddress=acme@acme.acme</subject_name>
+    <subject_name>CN={name}, C=US, ST=CA, O=Acme, emailAddress=acme@acme.acme</subject_name>
     <validity>
         <not_before>2013-10-26T00:00:00</not_before>
         <not_after>2023-10-26T22:45:30</not_after>
@@ -9,9 +9,9 @@
     <hash_algorithm>SHA256</hash_algorithm>
     <key>
         <asymmetric_type>
-            <rsa>
-                <key_size>2048</key_size>
-            </rsa>
+            <ec>
+                <curve>SECP256R1</curve>
+            </ec>
         </asymmetric_type>
         <encryption_algorithm>NoEncryption</encryption_algorithm>
         <password_env></password_env>
