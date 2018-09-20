@@ -7,7 +7,7 @@
 
     <ros_topic qualifier="ALLOW">
         <attachments>
-            <attachment>/parameter_events</attachment>
+            <attachment>{namespace}/parameter_events</attachment>
         </attachments>
         <permissions>
             <ros_publish/>
@@ -17,12 +17,12 @@
 
     <ros_service qualifier="ALLOW">
         <attachments>
-            <attachment>{name}/describe_parameters</attachment>
-            <attachment>{name}/get_parameter_types</attachment>
-            <attachment>{name}/get_parameters</attachment>
-            <attachment>{name}/list_parameters</attachment>
-            <attachment>{name}/set_parameters</attachment>
-            <attachment>{name}/set_parameters_atomically</attachment>
+            <attachment>{namespace}/{name}/describe_parameters</attachment>
+            <attachment>{namespace}/{name}/get_parameter_types</attachment>
+            <attachment>{namespace}/{name}/get_parameters</attachment>
+            <attachment>{namespace}/{name}/list_parameters</attachment>
+            <attachment>{namespace}/{name}/set_parameters</attachment>
+            <attachment>{namespace}/{name}/set_parameters_atomically</attachment>
         </attachments>
         <permissions>
             <ros_call/>
