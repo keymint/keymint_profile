@@ -3,13 +3,13 @@
 <profiles xmlns:xi="http://www.w3.org/2001/XInclude">
     <profile name="My Talker Profile">
         <attachments>
-            <attachment>/talker</attachment>
+            <attachment>*/talker</attachment>
         </attachments>
         <xi:include href="common/node.xml" parse="xml" />
 
         <ros_topic qualifier="ALLOW">
             <attachments>
-                <attachment>/chatter</attachment>
+                <attachment>{namespace}chatter</attachment>
             </attachments>
             <permissions>
                 <ros_publish/>
@@ -19,13 +19,13 @@
 
     <profile name="My Listener Profile">
         <attachments>
-            <attachment>/listener</attachment>
+            <attachment>*/listener</attachment>
         </attachments>
         <xi:include href="common/node.xml" parse="xml" />
 
         <ros_topic qualifier="ALLOW">
             <attachments>
-                <attachment>/chatter</attachment>
+                <attachment>{namespace}chatter</attachment>
             </attachments>
             <permissions>
                 <ros_subscribe/>
