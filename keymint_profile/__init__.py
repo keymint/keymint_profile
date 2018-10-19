@@ -28,13 +28,13 @@ except ImportError:
 
 import os
 import shutil
-
 from xml.etree import cElementTree as ElementTree
+
+from keymint_package.xml.defaults import set_defaults
+
 import xmlschema
 
 from .templates import get_profile_template_path
-
-from keymint_package.xml.defaults import set_defaults
 
 PROFILE_MANIFEST_FILENAME = 'keymint_profile.xml'
 
@@ -105,7 +105,6 @@ def bootstrap_profile(path):
     #         print("")
 
 
-
 def check_schema(schema, data, filename=None):
     from .exceptions import InvalidProfile
     if not schema.is_valid(data):
@@ -128,7 +127,6 @@ def parse_profile_string(data, path, *, filename=None):
     :returns: return parsed :class:`Profile`
     :raises: :exc:`InvalidProfile`
     """
-
     from .profile import Profile
     from .schemas import get_profile_schema_path
 
@@ -150,15 +148,13 @@ def parse_profile_string(data, path, *, filename=None):
     prf.profile_format = int(value)
     assert prf.profile_format > 0, \
         ("Unable to handle '{filename}' format version '{format}', please update the "
-         "manifest file to at least format version 1").format(
-         filename=filename,
-         format=prf.profile_format)
+         'manifest file to at least format version 1')\
+        .format(filename=filename, format=prf.profile_format)
     assert prf.profile_format in [1], \
         ("Unable to handle '{filename}' format version '{format}', please update "
          "'keymint_profile' (e.g. on Ubuntu/Debian use: sudo apt-get update && "
-         'sudo apt-get install --only-upgrade python-keymint-profile)').format(
-         filename=filename,
-         format=prf.profile_format)
+         'sudo apt-get install --only-upgrade python-keymint-profile)')\
+        .format(filename=filename, format=prf.profile_format)
 
     # name
     prf.name = root.find('name').text
