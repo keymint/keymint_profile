@@ -6,6 +6,7 @@ install:
 # Install runtime dependencies from PyPI
   - pip install xmlschema
 # Install dependent keymint packages from git
+  - pip install git+git://github.com/keymint/keymint_package.git@master#egg=keymint_package
 # Install test dependencies from PyPI
   - pip install nose
   - pip install flake8 pydocstyle
