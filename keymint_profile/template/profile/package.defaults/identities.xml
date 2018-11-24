@@ -6,7 +6,7 @@
         <not_after>2023-10-26T22:45:30</not_after>
     </validity>
     <serial_number>-1</serial_number>
-    <issuer_name>ca</issuer_name>
+    <issuer_name>identity_ca</issuer_name>
     <hash_algorithm>SHA256</hash_algorithm>
     <key>
         <asymmetric_type>
